@@ -1,0 +1,49 @@
+7Li+208Pb - CDC - Elab=68 MeV                                                   
+NAMELIST
+ &FRESCO hcm=0.05 rmatch=100.000  rasym=1000.00 accrcy=0.0010000  switch=1000.00 ajswtch=0.
+         jtmin=0.0 jtmax=1000.0 
+	 absend=-1 kqmax=0 thmin=0.00 thmax=90.00 thinc=0.50 
+	 chans=1 smats=2 iblock=2 xstabl=1
+	 elab=68 / 
+
+ &PARTITION namep='7Li' massp=7.0000 zp=3 
+	 namet='208Pb' masst=208.0000 zt=82 qval=2.4670 nex=2  /
+ &STATES jp=1.5 bandp=-1           cpot=1 jt=0.0  bandt=1  /
+ &STATES jp=0.5 bandp=-1 ep=0.4776 cpot=1 jt=0.0  copyt=1  /
+
+ &PARTITION namep='4He' massp=4.0026 zp=2 
+	 namet='208Pb+3' masst=211.0160 zt=83 qval=0.0 nex=-1  /
+ &STATES jp=0.0 bandp=1 cpot=2 jt=0.0  bandt=1  /
+
+ &partition /
+ 
+ &POT kp=1 ap=7.0000 at=208.0000 rc=1.20  /
+ 
+ &POT kp=3 ap=0.0000 at=208.0000 rc=1.25  /
+ &POT kp=3 type=1 p1=148.7000 p2=1.3390 
+	 p3=0.6970 p4=16.7000 p5=1.3390 p6=0.9170 p7=0.0000  /
+ 
+ &POT kp=2 ap=0.0000 at=208.0000 rc=1.4  /
+ &POT kp=2 type=1 p1=187.0000 p2=1.3500 
+	 p3=0.5770 p4=25.0000 p5=1.3500 p6=0.5740 p7=0.0000  /
+ 
+ &POT kp=4 ap=0.0000 at=1.0000 rc=1.80  /
+ &POT kp=4 type=1 p1=83.7700 p2=1.8000 p3=0.70  /
+ &pot / 
+ 
+ &OVERLAP kn1=1 ic1=1 ic2=2 in=1 nn=2 l=1 sn=0.5 
+	 j=1.5 kbpot=4 be=2.4670 isc=1       nam=1 ampl=1.0  /
+ &OVERLAP kn1=2 ic1=1 ic2=2 in=1 nn=2 l=1 sn=0.5 
+	 j=0.5 kbpot=4 be=1.9894 isc=1 ipc=2 nam=1 ampl=1.0  /
+ &overlap / 
+ 
+ &COUPLING icto=1  icfrom=2  kind=3 ip1=4 p1=3.0 p2=2.0  /
+ &CFP in=1 ib=1 ia=1 kn=1 a=1.0 /
+ &CFP in=1 ib=2 ia=1 kn=2 a=1.0 /
+ &cfp / 
+ 
+ &coupling / 
+ 
+Output code for fresco input written by xfresco version 2.1
+ at Fri Apr  3 17:21:29 2009
+ 

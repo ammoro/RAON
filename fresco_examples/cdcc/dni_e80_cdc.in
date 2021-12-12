@@ -1,0 +1,44 @@
+echo Running on `hostname`
+cat > Cdc.$$ << EOF
+d+ 58Ni at E=80 MeV (CDCC) s+p+d waves
+ &CDCC
+   hcm=0.1  rmatch=60 rintp=0.2  absend=0.001  
+   hnl=0.10 rnl=0.0 centre=0.25
+   elab=80  pel=1 lab=1 jbord=100
+   smallchan=1e-13 cdccc=0 cutr=-20.
+   thmax=180 thinc=1 chans=1 smats=2 xstabl=1  
+   nk=200 ncoul=0 reor=0 q=2 hat=F  /
+
+ &NUCLEUS part='Proj' name='d' charge=1 mass=2.000  spin=0. parity=1 be=2.227 n=1 l=0 j=0. /
+ &NUCLEUS part='Core' name='n' charge=0 mass=1.0 spin=0 parity=+1 /
+ &NUCLEUS part='Valence' name='p' charge=1 mass=1 spin=0.0 /
+ &NUCLEUS part='Target' name='58Ni' charge=28 mass=58.0 spin=0. parity=1 /
+
+ &BIN spin=0.0 parity=+1 start=0.01 step=5.0 end=30 energy=F l=0 j=0.0 isc=2/
+ &BIN spin=1.0 parity=-1 start=0.01 step=5.0 end=30 energy=F l=1 j=1.0/
+ &BIN spin=2.0 parity=+1 start=0.01 step=5.0 end=50 energy=F l=2 j=2.0/
+
+ &BIN /
+
+
+ &POTENTIAL part='Proj' a1=58. rc=1.25 /
+
+# Becchetti-Greenless potential for p +58Ni 
+ &POTENTIAL part='Valence' a1=58  rc=1.
+      V=44.9 vr0=1.17 a=0.75 w=6.1 wr0=1.32 aw=0.53 
+      wd=2.21  wdr0=1.320 awd=0.53 /
+
+# Becchetti-Greenless potential for p +58Ni
+ &POTENTIAL part='Core' a1=58 rc=1.25 
+      V=42.6 vr0=1.17 a=0.75 w=7.24 wr0=1.26 aw=0.58
+      wd=2.590 wdr0=1.26 awd=0.58 /
+ 
+# Gaussian potential for p-n
+  &POTENTIAL part='Gs' shape= 2 V=72.150  a=1.484  /
+
+EOF
+
+cdc4f < Cdc.$$ > dni_e80_cdcc.in
+\rm Cdc.$$
+exit
+
