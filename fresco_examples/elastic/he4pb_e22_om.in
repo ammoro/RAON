@@ -1,0 +1,25 @@
+4He+208Pb elastic scattering
+NAMELIST
+ &FRESCO hcm=0.08 rmatch=100.000  
+	 jtmin=0.0 jtmax=50.0 absend=-1 
+	 thmin=0.00 thmax=180.00  thinc=1.00 
+	 chans=1 treneg=0 smats=2  xstabl=1 
+	 elab=22
+	  /
+
+ &PARTITION namep='4He' massp=4.0026 zp=2 
+	 namet='208Pb' masst=207.9767 zt=82 qval=0.0000 pwf=F 
+	 nex=1  /
+ &STATES jp=0.0 bandp=1 cpot=1 jt=0.0 
+	 bandt=1  /
+
+ &partition /
+ 
+ &POT kp=1 at=208. ap=0 rc=1.376  /
+ &POT kp=1 type=1 p1=96.44 p2=1.376 p3=0.625 	 p4=32.0 p5=1.216 p6=0.42  /
+ &pot / 
+ 
+ &overlap / 
+ 
+ &coupling / 
+ 
