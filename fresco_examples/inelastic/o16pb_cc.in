@@ -1,0 +1,49 @@
+16O+208Pb 80 MeV 
+NAMELIST
+ &FRESCO hcm=0.05 rmatch=100.0 jtmin=0.0 
+	 jtmax=300.0 absend=-1 thmin=5.00 thmax=-180.00 
+	 thinc=2.50 iblock=3 smats=2  
+	 xstabl=1 elab=80.0 /
+
+ &PARTITION namep='16-O' massp=15.9949 zp=8 
+	 namet='PB-208' masst=207.9770 zt=82 qval=0.0000 
+	 nex=3  /
+ &STATES jp=0.0 bandp=1 cpot=1 jt=0.0 
+	 bandt=1  /
+ &STATES jp=0.0 copyp=1 cpot=1 jt=3.0 
+	 bandt=-1 et=2.6100  /
+ &STATES jp=0.0 copyp=1 bandp=1 cpot=1 
+	 jt=2.0 bandt=1 et=4.0700  /
+
+ &partition /
+ 
+ &POT kp=1 ap=208.000 at=16.000 rc=1.200  /
+ &POT kp=1 type=13 shape=10 p2=54.45 
+	 p3=815.0  /
+ &STEP ib=1 ia=2 k=3 str=815.0  /
+ &STEP ib=2 ia=1 k=3 str=815.0  /
+ &STEP ib=1 ia=3 k=2 str=54.45  /
+ &STEP ib=3 ia=1 k=2 str=54.45  /
+ &step / 
+ 
+ &POT kp=1 type=1 shape=1 p2=1.179 
+	 p3=0.658 p4=10.000 p5=1.000 p6=0.400  /
+ &POT kp=1 type=-1 p1=60.500 p2=1.179 
+	 p3=0.658  /
+ &POT kp=1 type=13 shape=11 p2=0.400 
+	 p3=0.800  /
+ &STEP ib=1 ia=2 k=3 str=0.8000  /
+ &STEP ib=2 ia=1 k=3 str=0.8000  /
+ &STEP ib=1 ia=3 k=2 str=0.4000  /
+ &STEP ib=3 ia=1 k=2 str=0.4000  /
+ &step / 
+ 
+ &pot / 
+ 
+ &overlap / 
+ 
+ &coupling / 
+ 
+Output code for fresco input written by xfresco version 2.1
+ at Tue Aug 12 00:52:21 2008
+ 

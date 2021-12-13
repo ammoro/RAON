@@ -1,0 +1,28 @@
+10Be+p @ 63.7 MeV/u DWBA (rotor model)    
+NAMELIST
+ &FRESCO hcm=0.05 rmatch=40.0
+       jtmin=0.0 jtmax=50  absend=-1 
+       thmin=0.1 thmax=90.00 
+       it0=1 iter=1 nnu=24 
+       smats=2   xstabl=1 
+       lin=2  elab=63.7  /
+
+ &PARTITION namep='10Be' massp=10.0113 zp=4 
+            namet='p' masst=1.0078 zt=1 nex=2  /
+ &STATES jp=0.0 bandp=1 ep=0.000 cpot=1 jt=0.0 bandt=1  /
+ &STATES jp=2.0 bandp=1 ep=3.368 cpot=1 jt=0.0 
+	 copyt=1 bandt=1  /
+
+ &partition /
+ 
+ &POT kp=1 ap=10 at=0.0 rc=1.0  /
+ &POT kp=1 type=1  shape=0  p1=31.64 p2=1.145 p3=0.69
+                            p4=8.78 p5=1.134 p6=0.69  /
+ &POT kp=1 type=10 shape=10 p2=1.97 /
+ &step / 
+ 
+ &pot / 
+ 
+ &overlap / 
+ 
+ &coupling /  
